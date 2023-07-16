@@ -15,7 +15,6 @@
         <appium.version>8.5.1</appium.version>
         <junit.version>5.9.3</junit.version>
         <cucumber.version>7.12.1</cucumber.version>
-        <cucumber-jvm.version>7.11.1</cucumber-jvm.version>
         <slf4j.version>2.0.5</slf4j.version>
         <faker.version>1.0.2</faker.version>
         <cluecumber-maven>2.9.4</cluecumber-maven>
@@ -75,11 +74,6 @@
             <artifactId>cucumber-junit-platform-engine</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-jvm</artifactId>
-            <version>${cucumber-jvm.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
