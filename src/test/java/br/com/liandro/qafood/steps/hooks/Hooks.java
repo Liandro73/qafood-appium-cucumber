@@ -87,9 +87,9 @@ public class Hooks {
             JavascriptExecutor jse = driver;
 
             if (runningScenario.isFailed()) {
-                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"FAIL\"}}");
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \" " + getRunningScenario().getName() + " FAIL\"}}");
             } else {
-                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"SUCCESS\"}}");
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"passed\", \"reason\": \" " + getRunningScenario().getName() + " SUCCESS\"}}");
             }
         }
     }

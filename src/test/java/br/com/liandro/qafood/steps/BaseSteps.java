@@ -2,8 +2,7 @@ package br.com.liandro.qafood.steps;
 
 import br.com.liandro.qafood.page.PageObjectFactory;
 import br.com.liandro.qafood.page.PageObjectHelper;
-import br.com.liandro.qafood.page.object.HomePageObject;
-import br.com.liandro.qafood.page.object.LoginPageObject;
+import br.com.liandro.qafood.page.object.*;
 import br.com.liandro.qafood.steps.hooks.Hooks;
 import br.com.liandro.qafood.utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
@@ -24,6 +23,10 @@ public class BaseSteps {
     protected PageObjectHelper pageObjectHelper;
     protected LoginPageObject loginPageObject;
     protected HomePageObject homePageObject;
+    protected RestaurantPageObject restaurantPageObject;
+    protected CartPageObject cartPageObject;
+    protected CheckoutPageObject checkoutPageObject;
+    protected OrderPageObject orderPageObject;
 
     public BaseSteps() {
         driver = DriverManager.getDriver();
@@ -32,6 +35,10 @@ public class BaseSteps {
         this.pageObjectHelper = pageObjectFactory.getPageObjectHelper();
         this.loginPageObject = pageObjectFactory.getLoginPageObject();
         this.homePageObject = pageObjectFactory.getHomePageObject();
+        this.restaurantPageObject = pageObjectFactory.getRestaurantPageObject();
+        this.cartPageObject = pageObjectFactory.getCartPageObject();
+        this.checkoutPageObject = pageObjectFactory.getCheckoutPageObject();
+        this.orderPageObject = pageObjectFactory.getOrderPageObject();
         this.scenario = Hooks.getRunningScenario();
         scenarioName = scenario.getName();
     }

@@ -1,7 +1,6 @@
 package br.com.liandro.qafood.page;
 
-import br.com.liandro.qafood.page.object.HomePageObject;
-import br.com.liandro.qafood.page.object.LoginPageObject;
+import br.com.liandro.qafood.page.object.*;
 import br.com.liandro.qafood.utils.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -16,6 +15,10 @@ public class PageObjectFactory {
     private PageObjectHelper pageObjectHelper;
     private LoginPageObject loginPageObject;
     private HomePageObject homePageObject;
+    private RestaurantPageObject restaurantPageObject;
+    private CartPageObject cartPageObject;
+    private CheckoutPageObject checkoutPageObject;
+    private OrderPageObject orderPageObject;
 
     public PageObjectFactory(AppiumDriver driver) {
         this.driver = driver;
@@ -42,6 +45,34 @@ public class PageObjectFactory {
             this.homePageObject = new HomePageObject(driver);
         }
         return this.homePageObject;
+    }
+
+    public RestaurantPageObject getRestaurantPageObject() {
+        if (this.restaurantPageObject == null) {
+            this.restaurantPageObject = new RestaurantPageObject(driver);
+        }
+        return  this.restaurantPageObject;
+    }
+
+    public CartPageObject getCartPageObject() {
+        if (this.cartPageObject == null) {
+            this.cartPageObject = new CartPageObject(driver);
+        }
+        return  this.cartPageObject;
+    }
+
+    public CheckoutPageObject getCheckoutPageObject() {
+        if (this.checkoutPageObject == null) {
+            this.checkoutPageObject = new CheckoutPageObject(driver);
+        }
+        return  this.checkoutPageObject;
+    }
+
+    public OrderPageObject getOrderPageObject() {
+        if (this.orderPageObject == null) {
+            this.orderPageObject = new OrderPageObject(driver);
+        }
+        return  this.orderPageObject;
     }
 
 }

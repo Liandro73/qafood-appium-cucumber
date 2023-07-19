@@ -18,13 +18,13 @@ public class LoginStepsTest extends BaseSteps {
         loginPageObject.checkThatInputEmailIsDisplayed();
     }
 
-    @When("I fill the fields email and password correctly {string} {string}")
+    @And("I fill the fields email and password correctly {string} {string}")
     public void iFillTheFieldsEmailAndPasswordCorrectly(String email, String password) {
         loginPageObject.fillInputEmail(email);
         loginPageObject.fillInputPassword(password);
     }
 
-    @And("I click on Sign in button")
+    @When("I click on Sign in button")
     public void iClickOnButton() {
         loginPageObject.clickOnLoginButton();
     }
@@ -34,6 +34,9 @@ public class LoginStepsTest extends BaseSteps {
         homePageObject.checkSelectDeliveryAddressIsDisplayed();
     }
 
+    /**
+     * Login full process
+     */
     @Given("that I do all process of the Login correctly {string} {string}")
     public void thatIDoAllProcessOfTheLoginCorrectly(String email, String password) {
         loginPageObject.checkThatInputEmailIsDisplayed();

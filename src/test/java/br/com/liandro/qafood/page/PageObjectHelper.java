@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Random;
 
 public class PageObjectHelper extends PageObjectFactory {
 
@@ -49,7 +50,13 @@ public class PageObjectHelper extends PageObjectFactory {
     private final PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
 
     protected void swipe(SwipeDirection direction) {
-
+        if (Platform.ANDROID.equals(getPlatform())) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
         Sequence dragNDrop = new Sequence(finger, 1);
         int startX, startY, endX, endY;
         switch (direction) {
@@ -129,6 +136,11 @@ public class PageObjectHelper extends PageObjectFactory {
             element.isDisplayed();
         } catch (NullPointerException | NoSuchElementException | StaleElementReferenceException ex) {
         }
+    }
+
+    public int randomNumber(int maxNumber) {
+        Random random = new Random();
+        return random.nextInt(maxNumber);
     }
 
 }
