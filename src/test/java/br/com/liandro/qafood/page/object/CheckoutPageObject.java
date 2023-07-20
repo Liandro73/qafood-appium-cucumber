@@ -9,6 +9,8 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 
+import java.io.IOException;
+
 public class CheckoutPageObject extends PageObjectHelper {
 
     @AndroidFindBy(accessibility = "do-order-button")
@@ -19,9 +21,7 @@ public class CheckoutPageObject extends PageObjectHelper {
         super(driver);
     }
 
-    public void selectThePaymentMethod_Random() {
-        swipe(SwipeDirection.SWIPE_DOWN);
-
+    public void selectThePaymentMethod_Random() throws IOException {
         int paymentMethodNumber = randomNumber(2);
         String paymentMethod;
 
@@ -32,13 +32,17 @@ public class CheckoutPageObject extends PageObjectHelper {
         }
         if (Platform.IOS.equals(getPlatform())) {
             WebElement cardFoodStore = driver.findElement(AppiumBy.accessibilityId(paymentMethod));
+            swipeToElementIos(cardFoodStore);
             checkElementIsVisible(cardFoodStore);
             clickOnElement(cardFoodStore);
+            takeScreenshot("payment method selected");
         }
         if (Platform.ANDROID.equals(getPlatform())) {
+            swipeToElementAndroid(paymentMethod);
             WebElement cardFoodStore = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"" + paymentMethod + "\"]"));
             checkElementIsVisible(cardFoodStore);
             clickOnElement(cardFoodStore);
+            takeScreenshot("payment method selected");
         }
 
 

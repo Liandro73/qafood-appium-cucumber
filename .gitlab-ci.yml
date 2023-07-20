@@ -6,4 +6,4 @@ stages:
 test-job:
   stage: test
   script:
-    - mvn test -Dcucumber.filter.tags="@Regressive" -Dplatform=devicefarm_android -Ddevice="Google Pixel 7 Pro" -Dosversion=13.0 -Duser=dernivalliandro_HC5zlF -Dkey=sNwiuaTaDB2TbfPcVzi1
+    - mvn test -Dcucumber.filter.tags="@Smoke" -Dplatform=devicefarm_android -Ddevice="Motorola Moto G71 5G" -Dosversion=13.0 -Duser=dernivalliandro_HC5zlF -Dkey=sNwiuaTaDB2TbfPcVzi1

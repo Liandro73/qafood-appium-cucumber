@@ -17,7 +17,7 @@ public class OrderPageObject extends PageObjectHelper {
     }
 
     public void checkThatConfirmationThatOrderIsDoneTextIsDisplayed() {
-        waitVisibilityOfElement(labelConfirmationThatOrderIsDone);
+        elementExistsAndIsDisplay(labelConfirmationThatOrderIsDone);
     }
 
 }

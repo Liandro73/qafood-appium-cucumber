@@ -4,6 +4,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.io.IOException;
+
 public class OrderStepsTest extends BaseSteps {
 
     public OrderStepsTest() {
@@ -13,7 +15,7 @@ public class OrderStepsTest extends BaseSteps {
      * Order full process
      */
     @And("I add a product to the cart")
-    public void iAddAProductToTheCart() {
+    public void iAddAProductToTheCart() throws IOException {
         homePageObject.clickOnSelectDeliveryAddressButton();
         homePageObject.clickOnAllowToUseLocationButton();
         homePageObject.clickOnCardFoodStore_Random();

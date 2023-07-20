@@ -2,6 +2,7 @@ package br.com.liandro.qafood.page;
 
 import br.com.liandro.qafood.utils.enuns.SwipeDirection;
 import br.com.liandro.qafood.utils.DeviceDimensions;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -49,6 +50,7 @@ public class PageObjectHelper extends PageObjectFactory {
 
     private final PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
 
+    @SuppressWarnings("SameParameterValue")
     protected void swipe(SwipeDirection direction) {
         if (Platform.ANDROID.equals(getPlatform())) {
             try {
@@ -96,7 +98,13 @@ public class PageObjectHelper extends PageObjectFactory {
         driver.perform(Collections.singletonList(dragNDrop));
     }
 
-    public void swipeToElement(WebElement element) {
+    public void swipeToElementAndroid(String elementText) {
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator
+                ("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"" + elementText + "\").instance(0))"));
+    }
+
+    @SuppressWarnings({"rawtypes", "unchecked", "JSUnresolvedReference", "UnnecessaryLabelJS"})
+    public void swipeToElementIos(WebElement element) {
         HashMap scrollObjects = new HashMap();
         scrollObjects.put("element", element);
         scrollObjects.put("direction", "up");
