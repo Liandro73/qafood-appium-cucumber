@@ -26,8 +26,7 @@ public class RestaurantPageObject extends PageObjectHelper {
             WebElement cardFoodStore = driver.findElement(AppiumBy.xpath("(//XCUIElementTypeOther[@name='add-item-buttom'])[" + (foodItemListNumber + 1) + "]"));
             checkElementIsVisible(cardFoodStore);
             clickOnElement(cardFoodStore);
-        }
-        if (Platform.ANDROID.equals(getPlatform())) {
+        } else if (Platform.ANDROID.equals(getPlatform())) {
             WebElement cardFoodStore = driver.findElement(AppiumBy.xpath("(//android.view.ViewGroup[@content-desc='add-item-buttom'])[" + (foodItemListNumber + 1) + "]"));
             checkElementIsVisible(cardFoodStore);
             clickOnElement(cardFoodStore);

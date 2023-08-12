@@ -1,7 +1,6 @@
 package br.com.liandro.qafood.page.object;
 
 import br.com.liandro.qafood.page.PageObjectHelper;
-import br.com.liandro.qafood.utils.enuns.SwipeDirection;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -36,16 +35,13 @@ public class CheckoutPageObject extends PageObjectHelper {
             checkElementIsVisible(cardFoodStore);
             clickOnElement(cardFoodStore);
             takeScreenshot("payment method selected");
-        }
-        if (Platform.ANDROID.equals(getPlatform())) {
+        } else if (Platform.ANDROID.equals(getPlatform())) {
             swipeToElementAndroid(paymentMethod);
             WebElement cardFoodStore = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"" + paymentMethod + "\"]"));
             checkElementIsVisible(cardFoodStore);
             clickOnElement(cardFoodStore);
             takeScreenshot("payment method selected");
         }
-
-
     }
 
     public void clickOnDoTheOrderButton() {

@@ -45,8 +45,7 @@ public class HomePageObject extends PageObjectHelper {
             WebElement cardFoodStore = driver.findElement(AppiumBy.xpath("(//XCUIElementTypeOther[@name='store-list-item'])[" + (storeCardListNumber + 1) + "]"));
             checkElementIsVisible(cardFoodStore);
             clickOnElement(cardFoodStore);
-        }
-        if (Platform.ANDROID.equals(getPlatform())) {
+        } else if (Platform.ANDROID.equals(getPlatform())) {
             WebElement cardFoodStore = driver.findElement(AppiumBy.xpath("(//android.view.ViewGroup[@content-desc='store-list-item'])[" + (storeCardListNumber + 1) + "]"));
             checkElementIsVisible(cardFoodStore);
             clickOnElement(cardFoodStore);
